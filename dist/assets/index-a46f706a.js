@@ -34,7 +34,7 @@ WARNING: This link could potentially be dangerous`)){const s=window.open();if(s)
     <textarea></textarea>
   </div>
   <div class="preview">
-    <iframe src="loading.html"></iframe>
+    <iframe src="./loading.html"></iframe>
   </div>
 </div>
 <div class="terminal"></div>

@@ -7,7 +7,8 @@
     "start": "nodemon --watch './' index.js",
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "publish": "git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
     "express": "latest",

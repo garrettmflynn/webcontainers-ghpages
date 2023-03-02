@@ -5,13 +5,21 @@ export const files = {
       file: {
         contents: `
   import express from 'express';
-  const app = express();
+  import cors from 'cors'
+  var app = express()
+  
+  app.use(cors())
+  
   const port = 3111;
   
   app.get('/', (req, res) => {
     res.send('Welcome to a WebContainers app! 🥳');
   });
   
+  app.get('/test', (req, res) => {
+      res.send('this is a test');
+    });
+          
   app.listen(port, () => {
     console.log(\`App is live at http://localhost:\${port}\`);
   });`,
@@ -25,7 +33,8 @@ export const files = {
     "type": "module",
     "dependencies": {
       "express": "latest",
-      "nodemon": "latest"
+      "nodemon": "latest",
+      "cors": "latest"
     },
     "scripts": {
       "start": "nodemon --watch './' index.js"

@@ -11,12 +11,18 @@ app.innerHTML = `
   <div class="editor">
     <textarea></textarea>
   </div>
-  <div class="preview">
-    <iframe src="loading.html"></iframe>
+  <div>
+    <h4 id="url">URL</h4>
+    <div class="preview">
+      <iframe src="./loading.html"></iframe>
+    </div>
   </div>
 </div>
 <div class="terminal"></div>
 `
+
+const button = document.querySelector('#btn') as HTMLButtonElement;
+const urlEl = document.querySelector('#url') as HTMLElement;
 
 /** @type {HTMLIFrameElement | null} */
 const iframeEl = document.querySelector('iframe') as HTMLIFrameElement;
@@ -122,6 +128,14 @@ window.addEventListener('load', async () => {
 
    // Wait for `server-ready` event
    webcontainerInstance.on('server-ready', (_, url) => {
+    console.log('Endpoint for Requests', url)
+    urlEl.innerText = url
+    button.disabled = false
+    button.onclick = async () => {
+      const res = await fetch(`${url}/test`)
+      const text = await res.text()
+      console.log('Got!', text)
+    }
     iframeEl.src = url;
   });
 

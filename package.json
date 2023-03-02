@@ -8,16 +8,17 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "publish": "git subtree push --prefix dist origin gh-pages"
+    "publish": "yarn build && git add dist && git commit -m 'New dist (automated)' && git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
-    "express": "latest",
-    "nodemon": "latest",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   },
   "dependencies": {
     "@webcontainer/api": "^1.0.2",
+    "express": "latest",
+    "nodemon": "latest",
+    "cors": "latest",
     "xterm": "^5.1.0",
     "xterm-addon-fit": "^0.7.0"
   }
